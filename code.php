@@ -73,3 +73,25 @@ var_dump($check);
 echo '<br />';
 $checkBool = is_bool($check); // check kiểu boolean True hay fault
 var_dump($checkBool);
+
+//c. FLOAT  
+$fee = 10.5; // Khai báo
+$fee = (float)$fee;// Ép kiểu số thục
+var_dump($fee); //kiểm tra kiểu dữ liệu
+var_dump(isfloat($fee)); //Kiểm tra kiểu có phải số thực k
+
+//d. STRING
+$messenger = "Chuỗi kí tự";
+$checkString = is_string($messenger);
+var_dump($messenger);
+echo '<br />';
+var_dump($check_string);
+echo '<br />'
+$numString = 10;
+$numString = (string)$numString;
+$checkString = is_string($numString);
+var_dump($checkString);
+
+//e. ARRAY
+
+.
