@@ -93,5 +93,299 @@ $checkString = is_string($numString);
 var_dump($checkString);
 
 //e. ARRAY
+//f. NULL
+$total = NULL;
+$checkNull = is_null($total);
+var_dump($total);
+echo '<br />';
+var_dump($checkNull);
 
-.
+//g. Resource
+//$curl = curl_init();
+//$checkType = get_resource_type($curl);
+//var_dump($curl);
+
+//h. Objects
+$dataCustomer = [
+    'Phúc An'
+];
+$dataCustomer = (object)$dataCustomer;
+$checkObject = is_object($dataCustomer);
+//var_dump($dataCustomer);
+echo '<br />';
+var_dump($checkObject);
+
+//8. Toán tử
+//a. Toán tử gán
+$age = 30;
+
+//9. Đoạn swich-case
+$number = 1;
+switch ($number){
+    case '1':
+        # code...
+    break;
+    case 2:
+
+    break;
+    case 3:
+
+    break;
+    default:
+
+    break;
+}
+/*
+ *Kiem tra thu trong tuan 
+ * $num = 1 => Chu nhat
+ * $num = 2 => Thu 2 
+ * ....
+ * $num = 7 => thứ 7
+ */
+echo "<br/>";
+$number = 12;
+switch ($number){
+    case 1:
+        echo "Hôm nay là chủ nhật";
+    break;
+    case 2:
+        echo "Hôm nay là thứ 2";
+        break;
+    case 3:
+        # code...
+        echo "Hôm nay là thứ 3";
+        break;
+    case 4:
+        echo "Hôm nay là thứ 4";
+    break;
+    case 5:
+        echo "Hôm nay là thứ 5";
+    break;
+    case 6:
+        echo "Hôm nay là thứ  6";
+    break;
+    case 7:
+        echo "Hôm nay là thứ 7";
+    break;
+    default:
+        echo "Error";
+    break;
+}
+
+/**
+ * Số ngày trong tháng
+ * Nhập vào tháng, năm => trả về ngày 
+ * Tháng 31 ngày: 1,3,5,7,8,10,12
+ * Tháng 30 ngày: 4,6,9,11
+ * Tháng 28/29 ngày: 2 (năm chia hết cho 4)
+ * */
+echo "<br/>";
+$month = 2;
+$year = 2023;
+switch ($month) {
+    case '2':
+        if($year %4 == 0){
+        echo "Tháng $month năm $year có 29 ngày";
+        }else{
+            echo "Tháng $month năm $year có 28 ngày";
+        }
+        break;
+    case '4':
+    case '6':
+    case '9':
+    case '11':
+        echo "Tháng $month năm $year có 30 ngày";
+        break;
+    default:
+        echo "Tháng $month năm $year có 31 ngày";
+        break;
+}
+
+//10. Vòng lặp for
+echo "<br/>";
+//Xác định số lần lặp
+$count = 20;
+//Xác định giá trị ban đầu
+$start = 0;
+for ($i=$start; $i <= $count; $i+=2) { 
+  echo "Đây là vòng lặp $i <br/>";
+}
+
+//Ví dụ 1: Tính tổng S=1+2+3+...+n
+echo "<br/>";
+$n = 10;
+$s = 0;
+for ($i=1; $i<=$n ; $i++) { 
+    $s+=$i;
+}
+echo "Tổng = $s";
+echo "<hr/>";
+
+//Ví dụ 2: Vòng for giảm
+$n = 10;
+for ($i = $n; $i >= 1; $i--){
+    echo "Đây là vòng giảm <br/>";
+}
+echo "<hr/>";
+//Bài tập 1: Hiển thị số lẻ, số chẵn trong dãy 1 2 3 4 ... 100
+/**
+ * Gán 1 dãy số với số bắt đầu và kết thúc
+ * Gán kết quả số chẵn và lẻ ở dạng null
+ * gán số lượng số chẵn lẻ trong dãy = 0
+ * kiểm tra xem n số nào chia hết cho 2 => in ra số chẵn
+ * còn lại => in ra số lẻ
+ */
+$start = 1;
+$end = 100;
+
+$even = null;
+$odd = null;
+
+$evenCount = 0;
+$oddCount = 0;
+for ($i=$start; $i <= $end ; $i++){ 
+    if($i%2==0){
+        //echo "$i là số chẵn <br/>";
+        $even.=$i.', ';
+        $evenCount++;
+    }else{
+        //echo "$i là số lẻ <br/>";
+        $odd.=$i.', ';
+        $oddCount++;
+    }
+}
+echo "Tìm thấy $evenCount số chẵn: $even <br/>";
+echo "Số lẻ: $odd <br/>";
+
+
+//break, continue
+for ($i=$start; $i <= $end ; $i++){ 
+     if ($i == 6) {
+        continue;
+     }
+}
+
+//Bài 2: Tính giai thừa của 1 số và hiển thị kết quả
+/**
+ * gán 1 số
+ * kiểm tra xem số đó có lớn hơn 0 k
+ * nếu <0 => in ra kq invalid
+ * nếu >0 => Gán biến kết quả = 1
+ * $result = 1 * $i+1 * $i+2 *...* biến đã gán
+ */
+echo "<br/>";
+$num = 4;
+if($num>0){
+   $result = 1;
+   for($i=4; $i>=1; $i--){
+    $result*=$i;
+   }echo "$num! = $result <br/>";
+}else{
+    echo "Number invalid!";
+}
+
+//Bài 3: Kiểm tra 1 số có phải số nguyên tố hay không, hiển thị kết quả
+/**
+ * kiểm tra số nguyên tố:
+ *   int lớn hơn 1
+ *   chỉ chia hết cho 1 và chính nó
+ * => Dùng phương pháp loại trừ: Tìm số chia hết cho số khác ngoài nó và 1
+ * Gán cờ kiểm tra: $check = true
+ * kiểm tra các số từ 2 đến n-1 xem n có chia hết cho số nào k
+ * nếu có => kp số nto
+ * nếu k => số nguyên tố
+ */
+$n = 4;
+if($n>1){
+    $check = true; // Gắn cờ kiểm tra số nguyên tố
+    for($i = 2;$i<$n;$i++){
+        if($n%$i==0){
+            $check = false;
+        }
+
+    }
+    if($check){
+        echo "$n là số nguyên tố";
+    }else{
+        echo "$n không phải là số nguyên tố";
+    }
+}else{
+    echo "$n không phải số nguyên tố";
+}
+
+//Bài 4: In bảng cửu chương
+/**
+ * Tạo table = html
+ * dùng vòng lặp cho số nhân từ 1 đến 10
+ * chia hàng bằng if
+ */
+?>
+<table border="1" wight="100%" cellspacing="0" cellpadding="10">
+    <>
+        <?php
+        for($i = 1; $i<= 10; $i++){ // Tạo vòng lặp cho số nhân 
+            if($i==1  || $i==6){ // Chia hàng
+                echo "<tr>";
+            }
+            echo "<td>"; // Chia cột
+            for($j = 1; $j <= 10; $j++){ // Tạo vòng lặp cho số bị nhân
+                $result= $i * $j; // Kết quả
+                echo "$i x $j = $result <br/>";
+            }
+            echo "</td>";
+  
+        } ?>
+    </tr>
+</table>
+
+<?php
+// Bài 5: vẽ ô cờ vua bằng PHP
+
+/**
+ * dssfsd
+ * sdf
+ * dsf
+ * sdf
+ * sdf
+ */
+echo "<br/>";
+?>
+<table border="1" width="100%" cellpadding="0" cellspacing="0">
+    <?php
+    $alphaloop = '';
+    for($row="a";$row<="h";$row++){
+        $alphaloop.="<td> $row </td>";
+    }
+    echo "<tr><td></td> $alphaloop </tr>";
+
+
+
+    $i=8;
+    for($row=1;$row<=8;$row++){
+        
+        ?>
+    <tr>
+        <td>
+            <?php echo "$i"; ?>
+        </td>
+        <?php for($col=1;$col<=8;$col++){
+            if($row%2!=0){
+                if($col%2!=0){
+                    echo "<td style='background: #fff; width: 12.5%; height: 100px'></td>";
+                }else{
+                    echo "<td style='background: #000; width: 12.5%; height: 100px'></td>";
+                }
+            }else{
+                if($col%2==0){
+                    echo "<td style='background: #fff; width: 12.5%; height: 100px'></td>";
+                }else{
+                    echo "<td style='background: #000; width: 12.5%; height: 100px'></td>";
+                }
+            }
+            ?>
+        <?php } ?>
+    </tr>
+    <?php 
+    $i--;
+} ?>
+</table>
