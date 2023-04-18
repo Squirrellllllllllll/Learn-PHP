@@ -5,7 +5,7 @@
  * Trả về kiểu dữ liệu boolean()
  * Trả về true nếu:
  *  + Không tồn tại => !isset($variable)
- *  + Rỗng, =0, trống, null, array rỗng, object rỗng, false
+ *  + Rỗng, =0, trống, null, array rỗng, object rỗng (Phải ép kiểu sang array), false
  */
 
 $str = "Unicode";
